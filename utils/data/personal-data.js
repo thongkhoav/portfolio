@@ -1,17 +1,27 @@
 export const personalData = {
-  name: "ABU SAID",
-  profile: '/profile.png',
-  designation: "Software Developer",
-  description: "My name is ABU SAID. I am a professional and enthusiastic programmer in my daily life. I am a quick learner with a self-learning attitude. I love to learn and explore new technologies and am passionate about problem-solving. I love almost all the stacks of web application development and love to make the web more open to the world. My core skill is based on JavaScript and I love to do most of the things using JavaScript. I am available for any kind of job opportunity that suits my skills and interests.",
-  email: 'abusaid7388@gmail.com',
-  phone: '+8801608797655',
-  address: 'Middle Badda, Dhaka, Bangladesh - 1212 ',
-  github: 'https://github.com/said7388',
-  facebook: 'https://www.facebook.com/abusaid.riyaz/',
-  linkedIn: 'https://www.linkedin.com/in/abu-said-bd/',
-  twitter: 'https://twitter.com/said7388',
-  stackOverflow: 'https://stackoverflow.com/users/16840768/abu-said',
-  leetcode: "https://leetcode.com/said3812/",
-  devUsername: "said7388",
-  resume: "https://drive.google.com/file/d/1eyutpKFFhJ9X-qpQGKhUNnVRkB5Wer00/view?usp=sharing"
-}
+  name: "Vo Thong Khoa",
+  designation: "Software Engineer",
+  description:
+    "Software Engineer based in Ho Chi Minh City, building production web applications with Next.js, NestJS, FastAPI, PostgreSQL, and AWS. I focus on end-to-end delivery, third-party integrations, cloud infrastructure, and AI-assisted engineering, turning product requirements into reliable and maintainable systems.",
+  email: "thongkhoa2002@gmail.com",
+  address: "Ho Chi Minh City, Viet Nam",
+  github: "https://github.com/thongkhoav",
+  linkedIn: "https://www.linkedin.com/in/khoa-vo-thong-38a68329b/",
+  leetcode: "https://leetcode.com/u/thongkhoavo/",
+  resume:
+    "https://drive.google.com/file/d/1d9KYrL7AS741sCLEZjRDkwpDUB2Tzehy/view?usp=sharing",
+  profileImages: [
+    "/image/avatar-blue-shirt.jpg",
+    "/image/vothongkhoa_2d.png",
+    "/image/avatar-front-of-laptop.jpg",
+  ],
+  featuredSkills: [
+    "TypeScript",
+    "Next.js",
+    "NestJS",
+    "FastAPI",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+  ],
+};

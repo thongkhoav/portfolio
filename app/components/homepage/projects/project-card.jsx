@@ -1,6 +1,9 @@
 // @flow strict
 
 import * as React from 'react';
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 
 function ProjectCard({ project }) {
 
@@ -63,6 +66,27 @@ function ProjectCard({ project }) {
           </div>
           <div><span className="text-gray-400">{`};`}</span></div>
         </code>
+        <div className="mt-6 flex flex-wrap gap-3 border-t border-indigo-900 pt-5">
+          {project.code.map((source) => (
+            <Link
+              key={source.url}
+              href={source.url}
+              target="_blank"
+              className="flex items-center gap-2 rounded-full border border-violet-500 px-4 py-2 text-sm text-white transition-colors hover:bg-violet-500"
+            >
+              <FaGithub />
+              {source.label} source
+            </Link>
+          ))}
+          <Link
+            href={project.demo}
+            target="_blank"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-4 py-2 text-sm text-white"
+          >
+            <FiExternalLink />
+            Live demo
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,77 +1,83 @@
-// @flow strict
-import { personalData } from '@/utils/data/personal-data';
-import Link from 'next/link';
+import { personalData } from "@/utils/data/personal-data";
+import { getDict } from "@/utils/i18n/dictionary";
+import Link from "next/link";
 import { BiLogoLinkedin } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
 import { IoLogoGithub } from "react-icons/io";
-import { MdAlternateEmail } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
+import { MdAlternateEmail, MdArrowOutward, MdDownload } from "react-icons/md";
+import { SiZalo } from "react-icons/si";
+import Reveal from "../../helper/reveal";
+import { contactChannels } from "./channels";
 
-function ContactSection() {
+function ContactSection({ lang = "en" }) {
+  const t = getDict(lang).contact;
+  const secondary = [
+    { label: "LinkedIn", href: personalData.linkedIn, Icon: BiLogoLinkedin },
+    { label: "GitHub", href: personalData.github, Icon: IoLogoGithub },
+    { label: t.resume, href: personalData.resume, Icon: MdDownload },
+  ];
+
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <div className="mb-8 flex justify-center lg:hidden">
-        <div className="flex items-center">
-          <span className="h-[2px] w-16 bg-[#1a1443]"></span>
-          <span className="w-fit rounded-md bg-[#1a1443] px-5 py-2 text-xl">
-            CONTACT
-          </span>
-          <span className="h-[2px] w-16 bg-[#1a1443]"></span>
-        </div>
-      </div>
-      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          CONTACT
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-      <div className="flex justify-center">
-        <div className="w-full max-w-2xl rounded-lg border border-[#464c6a] p-6 lg:p-8">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <Link
-              href={`mailto:${personalData.email}`}
-              className="flex items-center gap-3 text-sm transition-colors hover:text-[#16f2b3] md:text-xl"
-            >
-              <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.email}</span>
-            </Link>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>
-                {personalData.address}
+    <section id="contact" className="py-16 lg:py-24">
+      <Reveal
+        variant="zoom"
+        className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-surface-2 via-surface to-ink p-8 text-center sm:p-12 lg:p-16"
+      >
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
+
+        <p className="relative font-mono text-xs uppercase tracking-[0.2em] text-brand sm:text-sm">
+          <span className="type inline-block">&gt; 06 · {t.label}</span>
+        </p>
+        <h2 className="rise relative mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+          {t.title.split(" ").map((word, i, all) => (
+            <span key={`${word}-${i}`}>
+              <span style={{ "--w": i }}>
+                {word}
+                {i < all.length - 1 ? " " : ""}
               </span>
-            </p>
-          </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-            <Link target="_blank" href={personalData.github} aria-label="GitHub profile">
-              <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
+            </span>
+          ))}
+        </h2>
+        <p className="relative mx-auto mt-4 max-w-xl text-muted sm:text-lg">{t.body}</p>
+
+        <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
+          {contactChannels(lang).map(({ kind, href, external }, i) => (
+            <Link
+              key={kind}
+              href={href}
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className={`group inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-semibold transition-all sm:text-lg ${
+                i === 0
+                  ? "bg-brand text-ink hover:-translate-y-0.5"
+                  : "border border-brand/60 text-brand hover:bg-brand hover:text-ink"
+              }`}
+            >
+              {kind === "zalo" ? <SiZalo size={22} /> : <MdAlternateEmail />}
+              {kind === "zalo" ? t.zalo : personalData.email}
+              {i === 0 ? <MdArrowOutward className="transition-transform group-hover:rotate-45" /> : null}
             </Link>
-            <Link target="_blank" href={personalData.linkedIn} aria-label="LinkedIn profile">
-              <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.leetcode} aria-label="LeetCode profile">
-              <SiLeetcode
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-          </div>
+          ))}
         </div>
-      </div>
-    </div>
+        <p className="relative mx-auto mt-4 max-w-md text-sm text-muted">{t.note}</p>
+
+        <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
+          {secondary.map(({ label, href, Icon }) => (
+            <Link
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-text transition-colors hover:border-brand hover:text-brand"
+            >
+              <Icon />
+              {label}
+            </Link>
+          ))}
+        </div>
+
+        <p className="relative mt-8 font-mono text-xs text-muted">{getDict(lang).footer.rights} · GMT+7</p>
+      </Reveal>
+    </section>
   );
-};
+}
 
 export default ContactSection;

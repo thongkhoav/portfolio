@@ -1,37 +1,251 @@
 @use "tailwindcss";
 
-:root {
-  --foreground-rgb: rgb(211, 216, 232);
+/* Design tokens: dark navy + one yellow accent, matching the TikTok channel's
+   terminal-style number frame (JetBrains Mono, #FFD93D). */
+@theme {
+  --color-ink: #0b1020;
+  --color-surface: #111831;
+  --color-surface-2: #172042;
+  --color-line: #252f55;
+  --color-text: #e7eaf3;
+  --color-muted: #9aa3bf;
+  --color-brand: #ffd93d;
+  --color-brand-soft: #ffd93d1f;
+  --color-live: #16f2b3;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  /* Must sit on <html> too: body's overflow is propagated to the viewport,
+     and mobile browsers otherwise widen the layout viewport. */
+  overflow-x: clip;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background-color: #0d1224;
+  color: var(--color-text);
+  background-color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  /* Decorative layers (hero grid, glows) bleed past the container on purpose. */
+  overflow-x: clip;
 }
 
-#sticky-card-1 {
-  --index: 1;
+::selection {
+  background: var(--color-brand);
+  color: var(--color-ink);
 }
 
-#sticky-card-2 {
-  --index: 2;
+/* Faint grid behind the hero. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, #ffffff08 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at top, #000 30%, transparent 75%);
 }
 
-#sticky-card-3 {
-  --index: 3;
+/* Scroll reveal. Elements start hidden only after JS marks the document,
+   so the page stays readable without JS. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 1100ms cubic-bezier(0.77, 0, 0.18, 1),
+    filter 800ms ease-out;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-#sticky-card-4 {
-  --index: 4;
+.js-reveal [data-reveal="left"] {
+  transform: translate3d(-56px, 0, 0);
 }
 
-.sticky-card {
-  // padding-top: calc(var(--index) * 2.5rem);
-  top: calc(var(--index) * 4rem);
+.js-reveal [data-reveal="right"] {
+  transform: translate3d(56px, 0, 0);
+}
+
+.js-reveal [data-reveal="zoom"] {
+  transform: scale(0.9);
+  filter: blur(6px);
+}
+
+/* Card flips up from below like a page turning towards you. */
+.js-reveal [data-reveal="tilt"] {
+  transform: perspective(1000px) translate3d(0, 60px, 0) rotateX(22deg) scale(0.96);
+  transform-origin: 50% 100%;
+}
+
+/* Curtain wipe for photos: the photo opens bottom-up while it settles.
+   The clip sits on the <img>, not the observed frame: a fully clipped
+   element never counts as intersecting, so the reveal would never fire. */
+.js-reveal [data-reveal="wipe"] {
+  opacity: 1;
+  transform: none;
+}
+
+.js-reveal [data-reveal="wipe"] img {
+  clip-path: inset(100% 0 0 0);
+  transform: scale(1.18);
+  transition:
+    clip-path 1100ms cubic-bezier(0.77, 0, 0.18, 1) var(--reveal-delay, 0ms),
+    transform 1600ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+
+.js-reveal [data-reveal="blur"] {
+  transform: translate3d(0, 16px, 0);
+  filter: blur(12px);
+}
+
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.js-reveal [data-reveal="wipe"].is-visible img {
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+}
+
+/* Section titles rise word by word out of a mask. */
+.rise > span {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Room for Vietnamese diacritics above and descenders below the mask. */
+  padding: 0.18em 0 0.1em;
+  margin: -0.18em 0 -0.1em;
+}
+
+.rise > span > span {
+  display: inline-block;
+}
+
+.js-reveal [data-reveal] .rise > span > span {
+  transform: translate3d(0, 110%, 0) rotate(4deg);
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--reveal-delay, 0ms) + var(--w, 0) * 70ms + 120ms);
+}
+
+.js-reveal [data-reveal].is-visible .rise > span > span {
+  transform: none;
+}
+
+/* Terminal eyebrow types itself out. */
+.js-reveal [data-reveal] .type {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 700ms steps(18, end);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-reveal [data-reveal].is-visible .type {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Accent line under section titles draws from left to right. */
+.draw-line {
+  transform-origin: left;
+}
+
+.js-reveal [data-reveal] .draw-line {
+  transform: scaleX(0);
+  transition: transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--reveal-delay, 0ms) + 450ms);
+}
+
+.js-reveal [data-reveal].is-visible .draw-line {
+  transform: scaleX(1);
+}
+
+/* Cursor-following glow for interactive cards (see SpotlightCard). */
+.spotlight {
+  background-image: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, -20%),
+    #ffd93d14,
+    transparent 60%
+  );
+}
+
+/* Above-the-fold entrance: pure CSS so it runs on first paint, before JS. */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-enter] {
+  animation: enter-up 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Timeline line that draws itself when its parent reveals. */
+.timeline-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1400ms cubic-bezier(0.22, 1, 0.36, 1) 200ms;
+}
+
+.is-visible .timeline-line {
+  transform: scaleY(1);
+}
+
+/* Blinking terminal cursor. */
+.cursor::after {
+  content: "▋";
+  margin-left: 2px;
+  color: var(--color-brand);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-reveal [data-reveal],
+  .js-reveal [data-reveal] img,
+  .js-reveal [data-reveal] .rise > span > span,
+  .js-reveal [data-reveal] .type,
+  .js-reveal [data-reveal] .draw-line,
+  .timeline-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .animate-float,
+  .cursor::after,
+  [data-enter] {
+    animation: none;
+  }
 }

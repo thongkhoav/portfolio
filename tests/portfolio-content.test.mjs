@@ -36,18 +36,30 @@ test("publishes Vo Thong Khoa's verified public profile", () => {
   );
 });
 
-test("does not publish a phone number or excluded social profiles", () => {
-  for (const field of ["phone", "facebook", "twitter", "stackOverflow", "devUsername"]) {
+test("uses a Zalo friend link instead of a public phone number", () => {
+  assert.equal(personalData.zalo, "https://zaloapp.com/qr/p/x67wwb8h51un");
+  for (const field of ["phone", "phoneHref", "phoneDisplay"]) {
     assert.equal(field in personalData, false, `${field} should not be public`);
   }
 });
 
-test("uses all three selected portfolio images", () => {
+test("does not publish excluded social profiles", () => {
+  for (const field of ["facebook", "twitter", "stackOverflow", "devUsername"]) {
+    assert.equal(field in personalData, false, `${field} should not be public`);
+  }
+});
+
+test("uses only real photos, no AI-generated images", async () => {
   assert.deepEqual(personalData.profileImages, [
     "/image/avatar-blue-shirt.jpg",
-    "/image/vothongkhoa_2d.png",
+    "/image/work-office-desk.jpg",
+    "/image/work-cafe-window.jpg",
+    "/image/work-home-desk.jpg",
     "/image/avatar-front-of-laptop.jpg",
   ]);
+  for (const aiImage of ["vothongkhoa_2d.png", "Code_Generated_Image.png", "upper-avt-square.png"]) {
+    await assert.rejects(readSource(`../public/image/${aiImage}`), { code: "ENOENT" });
+  }
 });
 
 test("matches the verified experience and education history", () => {
@@ -150,6 +162,6 @@ test("removes the template author's identity from rendered source", async () => 
 
   assert.doesNotMatch(
     sources.join("\n"),
-    /Abu Said|ABU SAID|said7388|Bangladesh|facebook|twitter|stackOverflow|phone/i,
+    /Abu Said|ABU SAID|said7388|Bangladesh|facebook|twitter|stackOverflow/i,
   );
 });

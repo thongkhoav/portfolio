@@ -1,37 +1,38 @@
-// @flow strict
+import { channels } from "@/utils/data/channels";
 import { personalData } from "@/utils/data/personal-data";
+import { getDict } from "@/utils/i18n/dictionary";
 import Link from "next/link";
 
-function Footer() {
+const LINKS = [
+  { label: "GitHub", href: personalData.github },
+  { label: "LinkedIn", href: personalData.linkedIn },
+  { label: "TikTok", href: channels.tiktok.url },
+  { label: "YouTube", href: channels.youtube.url },
+];
+
+function Footer({ lang = "en" }) {
+  const t = getDict(lang);
   return (
-    <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
-      <div className="mx-auto px-6 pb-20 pt-6 sm:px-12 md:py-6 lg:max-w-[70rem] lg:py-10 xl:max-w-[76rem] 2xl:max-w-[92rem]">
-        <div className="flex justify-center -z-40">
-          <div className="absolute top-0 h-[1px] w-1/2  bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
-        </div>
-        <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
-          <p className="text-sm">
-            © {new Date().getFullYear()} {personalData.name}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-5">
+    <footer className="mt-16 border-t border-line/70">
+      <div className="mx-auto flex flex-col items-center justify-between gap-4 px-5 py-8 text-center sm:px-8 md:flex-row md:text-left lg:max-w-[70rem] xl:max-w-[76rem]">
+        <p className="font-mono text-xs text-muted">
+          © {new Date().getFullYear()} {t.hero.name} · {t.footer.rights}
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-5">
+          {LINKS.map(({ label, href }) => (
             <Link
+              key={label}
               target="_blank"
-              href={personalData.github}
-              className="text-sm uppercase hover:text-[#16f2b3]"
+              rel="noopener noreferrer"
+              href={href}
+              className="text-sm text-muted transition-colors hover:text-brand"
             >
-              GitHub
+              {label}
             </Link>
-            <Link
-              target="_blank"
-              href={personalData.linkedIn}
-              className="text-sm uppercase hover:text-[#16f2b3]"
-            >
-              LinkedIn
-            </Link>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

@@ -1,95 +1,69 @@
-// @flow strict
-
-import * as React from 'react';
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
+import SpotlightCard from "../../helper/spotlight-card";
 
-function ProjectCard({ project }) {
-
+function ProjectCard({ project, index = 0, t }) {
   return (
-    <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
-      <div className="flex flex-row">
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-        <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-      </div>
-      <div className="px-4 lg:px-8 py-3 lg:py-5 relative">
-        <div className="flex flex-row space-x-1 lg:space-x-2 absolute top-1/2 -translate-y-1/2">
-          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-red-400"></div>
-          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-orange-400"></div>
-          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-green-200"></div>
-        </div>
-        <p className="text-center ml-3 text-[#16f2b3] text-base lg:text-xl">
-          {project.name}
+    <SpotlightCard className="group grid overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-brand/50 lg:grid-cols-[1.2fr_1fr]">
+      <div className="p-6 lg:p-8">
+        <p className="font-mono text-xs text-brand">
+          {String(index + 1).padStart(2, "0")} · {project.role}
         </p>
-      </div>
-      <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-        <code className="font-mono text-xs md:text-sm lg:text-base">
-          <div className="blink">
-            <span className="mr-2 text-pink-500">const</span>
-            <span className="mr-2 text-white">project</span>
-            <span className="mr-2 text-pink-500">=</span>
-            <span className="text-gray-400">{'{'}</span>
-          </div>
-          <div>
-            <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-            <span className="text-gray-400">{`'`}</span>
-            <span className="text-amber-300">{project.name}</span>
-            <span className="text-gray-400">{`',`}</span>
-          </div>
+        <h3 className="mt-3 text-2xl font-bold text-white">{project.name}</h3>
+        <p className="mt-4 leading-relaxed text-muted">{project.description}</p>
 
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className=" text-white">tools:</span>
-            <span className="text-gray-400">{` ['`}</span>
-            {
-              project.tools.map((tag, i) => (
-                <React.Fragment key={i}>
-                  <span className="text-amber-300">{tag}</span>
-                  {
-                    project.tools?.length - 1 !== i &&
-                    <span className="text-gray-400">{`', '`}</span>
-                  }
-                </React.Fragment>
-              ))
-            }
-            <span className="text-gray-400">{"],"}</span>
-          </div>
-          <div>
-            <span className="ml-4 lg:ml-8 mr-2 text-white">myRole:</span>
-            <span className="text-orange-400">{project.role}</span>
-            <span className="text-gray-400">,</span>
-          </div>
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className="text-white">Description:</span>
-            <span className="text-cyan-400">{' ' + project.description}</span>
-            <span className="text-gray-400">,</span>
-          </div>
-          <div><span className="text-gray-400">{`};`}</span></div>
-        </code>
-        <div className="mt-6 flex flex-wrap gap-3 border-t border-indigo-900 pt-5">
+        <div className="mt-6 flex flex-wrap gap-3">
+          {project.demoOnline ? (
+            <Link
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+            >
+              <FiExternalLink />
+              {t.demo}
+            </Link>
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-line px-4 py-2 text-sm text-muted">
+              {t.demoOffline}
+            </span>
+          )}
           {project.code.map((source) => (
             <Link
               key={source.url}
               href={source.url}
               target="_blank"
-              className="flex items-center gap-2 rounded-full border border-violet-500 px-4 py-2 text-sm text-white transition-colors hover:bg-violet-500"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white transition-colors hover:border-brand hover:text-brand"
             >
               <FaGithub />
-              {source.label} source
+              {project.codeLabels?.[source.label] || source.label} {t.source}
             </Link>
           ))}
-          <Link
-            href={project.demo}
-            target="_blank"
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-4 py-2 text-sm text-white"
-          >
-            <FiExternalLink />
-            Live demo
-          </Link>
         </div>
       </div>
-    </div>
+
+      <div className="relative border-t border-line bg-ink/60 p-6 font-mono text-xs leading-6 lg:border-l lg:border-t-0 lg:p-8 lg:text-sm">
+        <div className="mb-4 flex gap-1.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+        </div>
+        <p className="text-muted">{"// stack"}</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {project.tools.map((tool) => (
+            <span
+              key={tool}
+              className="rounded-md border border-line bg-surface px-2 py-0.5 text-text transition-colors group-hover:border-brand/40"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
+    </SpotlightCard>
   );
-};
+}
 
 export default ProjectCard;

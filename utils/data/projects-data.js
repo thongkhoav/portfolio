@@ -27,5 +27,8 @@ export const projectsData = [
       },
     ],
     demo: "https://fe-task-nextjs.vercel.app",
+    // Vercel returns DEPLOYMENT_NOT_FOUND (checked 2026-10-22). Set to true
+    // after redeploying so the "Live demo" button shows again.
+    demoOnline: false,
   },
 ];

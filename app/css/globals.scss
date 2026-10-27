@@ -37,6 +37,13 @@ body {
   color: var(--color-ink);
 }
 
+/* Tailwind v4 resets buttons to cursor: default; restore the hand cursor
+   for every clickable button (scroll-to-top, mobile menu, ...). */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
 /* Faint grid behind the hero. */
 .bg-grid {
   background-image:

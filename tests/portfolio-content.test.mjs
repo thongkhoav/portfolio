@@ -51,7 +51,7 @@ test("does not publish excluded social profiles", () => {
 
 test("uses only real photos, no AI-generated images", async () => {
   assert.deepEqual(personalData.profileImages, [
-    "/image/avatar-blue-shirt.jpg",
+    "/image/avatar-hero.jpg",
     "/image/work-office-desk.jpg",
     "/image/work-cafe-window.jpg",
     "/image/work-home-desk.jpg",

@@ -5,6 +5,8 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
+    // 90 is used by the hero portrait; Next 16 only serves listed qualities.
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: 'https',

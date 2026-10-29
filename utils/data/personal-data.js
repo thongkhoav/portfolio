@@ -19,7 +19,7 @@ export const personalData = {
   // Real photos only (no AI-generated images): hero, office desk, remote
   // work from a café and from home in the Mekong Delta, and the /links avatar.
   profileImages: [
-    "/image/avatar-blue-shirt.jpg",
+    "/image/avatar-hero.jpg",
     "/image/work-office-desk.jpg",
     "/image/work-cafe-window.jpg",
     "/image/work-home-desk.jpg",

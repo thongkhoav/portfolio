@@ -129,7 +129,7 @@ const vi = {
   },
   hero: {
     name: "Võ Thống Khoa",
-    hi: "Chào, mình là",
+    hi: "Hi, mình là",
     designation: "Kỹ sư phần mềm.",
     headline: "Mình làm web app từ đầu đến cuối — và đưa tính năng AI vào phần mềm chạy thật.",
     availability: "Nhận dự án web và app",

@@ -28,10 +28,10 @@ function Experience({ lang = "en" }) {
                 <article className="rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-brand/50 lg:p-8">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
                     <div>
-                      <h3 className="text-lg font-bold text-white sm:text-xl">{experience.title}</h3>
+                      <h3 className="text-lg font-bold text-heading sm:text-xl">{experience.title}</h3>
                       <p className="mt-1 text-muted">{experience.company}</p>
                     </div>
-                    <p className="font-mono text-xs text-brand sm:text-right sm:text-sm">
+                    <p className="font-mono text-xs text-accent sm:text-right sm:text-sm">
                       {experience.duration}
                       <span className="block text-muted">{formatTenure(roleMonths(raw), lang)}</span>
                     </p>
@@ -40,10 +40,10 @@ function Experience({ lang = "en" }) {
                   {metrics.length ? (
                     <div className="mt-6">
                       <p className="font-mono text-[11px] uppercase tracking-wider text-muted">{t.numbers}</p>
-                      <div className="mt-3 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 xl:grid-cols-4">
+                      <div className="mt-3 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 xl:grid-cols-5 sm:[&>*:last-child]:col-span-2 xl:[&>*:last-child]:col-span-1">
                         {metrics.map(({ value, label }, m) => (
                           <Reveal key={label.en} variant="zoom" delay={250 + m * 110} className="bg-ink/70 p-4">
-                            <CountUp value={value} className="font-mono text-2xl font-bold text-brand sm:text-3xl" />
+                            <CountUp value={value} className="font-mono text-2xl font-bold text-accent sm:text-3xl" />
                             <p className="mt-1 text-xs leading-snug text-muted sm:text-sm">{label[lang] || label.en}</p>
                           </Reveal>
                         ))}

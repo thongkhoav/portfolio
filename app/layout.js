@@ -1,6 +1,7 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import { personalData } from "@/utils/data/personal-data";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { themeInitScript } from "./components/helper/theme-script";
 import "./css/card.scss";
 import "./css/globals.scss";
 
@@ -26,12 +27,15 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0b1020",
+  themeColor: "#f7f8fc",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="font-sans" suppressHydrationWarning>
         {children}
       </body>

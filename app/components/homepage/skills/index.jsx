@@ -15,7 +15,7 @@ function Skills({ lang = "en" }) {
       <div className="grid gap-5 sm:grid-cols-2">
         {skillGroups.map((group, i) => (
           <Reveal key={group.title} variant="tilt" delay={(i % 2) * 140} className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-mono text-xs uppercase tracking-wider text-brand">
+            <p className="font-mono text-xs uppercase tracking-wider text-accent">
               {t.groups?.[group.title] || group.title}
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">

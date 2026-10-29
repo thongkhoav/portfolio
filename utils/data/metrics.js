@@ -19,8 +19,9 @@ export function formatTenure(months, lang = "en") {
   return [y && `${y} yr${y > 1 ? "s" : ""}`, m && `${m} mo${m > 1 ? "s" : ""}`].filter(Boolean).join(" ");
 }
 
-// Proof numbers. Source: `git log` across the company repositories on Rio's
-// machine, counted by author name, measured 2026-10-22. Client names are
+// Proof numbers. Commits and pull requests: GitHub search on Rio's work
+// account (default branches, merged PRs), Dec 2025 – Oct 2026, measured
+// 2026-10-29: 1,480 commits, 589 merged PRs. Rounded down. Client names are
 // deliberately not published. Re-measure before changing a number.
 export const proofStats = [
   {
@@ -28,14 +29,16 @@ export const proofStats = [
     label: { en: "years of professional experience", vi: "năm kinh nghiệm làm việc" },
   },
   { value: "16", label: { en: "client products contributed to", vi: "sản phẩm khách hàng đã tham gia" } },
-  { value: "1,900+", label: { en: "commits in the last 12 months", vi: "commit trong 12 tháng gần nhất" } },
+  { value: "1,400+", label: { en: "commits in the last 12 months", vi: "commit trong 12 tháng gần nhất" } },
+  { value: "580+", label: { en: "merged pull requests", vi: "pull request đã merge" } },
   { value: "7", label: { en: "AWS services run in production", vi: "dịch vụ AWS vận hành production" } },
 ];
 
 // Metric tiles per experience entry, keyed by experience id.
 export const experienceMetrics = {
   1: [
-    { value: "1,900+", label: { en: "commits, Oct 2025 – Oct 2026", vi: "commit, 10/2025 – 10/2026" } },
+    { value: "1,400+", label: { en: "commits, Oct 2025 – Oct 2026", vi: "commit, 10/2025 – 10/2026" } },
+    { value: "580+", label: { en: "merged pull requests, Oct 2025 – Oct 2026", vi: "pull request đã merge, 10/2025 – 10/2026" } },
     { value: "16", label: { en: "client products shipped or maintained", vi: "sản phẩm khách hàng đã làm hoặc duy trì" } },
     { value: "4", label: { en: "products where I was the top committer (53–100% of commits)", vi: "sản phẩm mình commit nhiều nhất (53–100% số commit)" } },
     { value: "4", label: { en: "Korean & third-party integrations: NHN Cloud, Kakao, Naver Map, Payple", vi: "tích hợp dịch vụ Hàn Quốc và bên thứ ba: NHN Cloud, Kakao, Naver Map, Payple" } },

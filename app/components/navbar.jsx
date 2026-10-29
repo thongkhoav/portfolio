@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { FlagGB, FlagVN } from "./helper/flags";
+import ThemeToggle from "./helper/theme-toggle";
 
 const SECTION_IDS = ["services", "experience", "projects", "about", "skills"];
 const LANG_OPTIONS = [
@@ -63,8 +64,8 @@ function Navbar({ lang = "en" }) {
       }`}
     >
       <nav className="mx-auto flex items-center justify-between px-5 py-3.5 sm:px-8 lg:max-w-[70rem] xl:max-w-[76rem]">
-        <Link href={base} className="flex items-center gap-2.5 font-mono text-sm font-semibold text-white">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-brand text-ink">TK</span>
+        <Link href={base} className="flex items-center gap-2.5 font-mono text-sm font-semibold text-heading">
+          <span className="grid h-8 w-8 place-items-center rounded-md bg-brand text-on-brand">TK</span>
           <span className="hidden sm:inline">{getDict(lang).hero.name}</span>
         </Link>
 
@@ -74,7 +75,7 @@ function Navbar({ lang = "en" }) {
               <Link
                 href={href(id)}
                 className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
-                  active === id ? "bg-brand-soft text-brand" : "text-muted hover:text-white"
+                  active === id ? "bg-brand-soft text-accent" : "text-muted hover:text-heading"
                 }`}
               >
                 {t[id]}
@@ -84,6 +85,7 @@ function Navbar({ lang = "en" }) {
         </ul>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle labels={{ dark: t.themeDark, light: t.themeLight }} />
           <div
             role="group"
             aria-label={lang === "vi" ? "Ngôn ngữ" : "Language"}
@@ -99,7 +101,7 @@ function Navbar({ lang = "en" }) {
                   onClick={(event) => switchLang(event, code)}
                   aria-current={current ? "true" : undefined}
                   className={`inline-flex h-full items-center gap-1.5 rounded-full px-2.5 transition-colors ${
-                    current ? "bg-brand text-ink" : "text-muted hover:text-white"
+                    current ? "bg-brand text-on-brand" : "text-muted hover:text-heading"
                   }`}
                 >
                   <Flag className="h-3 w-[18px] shrink-0 rounded-[2px] shadow-[0_0_0_1px_rgba(255,255,255,0.15)]" />
@@ -110,13 +112,13 @@ function Navbar({ lang = "en" }) {
           </div>
           <Link
             href={href("contact")}
-            className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 sm:inline-block"
+            className="hidden rounded-full bg-brand px-4 py-2 text-sm font-semibold text-on-brand transition-transform hover:-translate-y-0.5 sm:inline-block"
           >
             {t.cta}
           </Link>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line text-white md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-line text-heading md:hidden"
             aria-label={open ? t.close : t.open}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -137,7 +139,7 @@ function Navbar({ lang = "en" }) {
               <Link
                 href={href(id)}
                 onClick={() => setOpen(false)}
-                className={`block py-3 text-base ${active === id ? "text-brand" : "text-text"}`}
+                className={`block py-3 text-base ${active === id ? "text-accent" : "text-text"}`}
               >
                 {t[id]}
               </Link>

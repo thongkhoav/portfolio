@@ -38,11 +38,11 @@ function AboutSection({ lang = "en" }) {
                 delay={i * 120}
                 className="flex gap-4 rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-brand/50"
               >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-brand-soft text-accent">
                   <Icon size={18} />
                 </span>
                 <div>
-                  <p className="font-semibold text-white">{title}</p>
+                  <p className="font-semibold text-heading">{title}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted">{body}</p>
                 </div>
               </Reveal>

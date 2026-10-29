@@ -25,10 +25,10 @@ function Services({ lang = "en" }) {
               <SpotlightCard className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand/60">
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 <div className="flex items-start justify-between gap-3">
-                  <p className="font-mono text-xs uppercase tracking-wider text-brand">{service.tag}</p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">{service.tag}</p>
                   <span className="font-mono text-xs text-muted/60">0{i + 1}</span>
                 </div>
-                <h3 className="mt-3 text-xl font-bold text-white">{service.title}</h3>
+                <h3 className="mt-3 text-xl font-bold text-heading">{service.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{service.pitch}</p>
 
                 <ul className="mt-5 space-y-2.5">
@@ -50,7 +50,7 @@ function Services({ lang = "en" }) {
 
                 <Link
                   href={mailto(service.title)}
-                  className="mt-auto inline-flex items-center gap-1.5 self-start pt-6 text-sm font-semibold text-brand"
+                  className="mt-auto inline-flex items-center gap-1.5 self-start pt-6 text-sm font-semibold text-accent"
                 >
                   {t.ask}
                   <MdArrowOutward className="transition-transform group-hover:rotate-45" />
@@ -70,9 +70,9 @@ function Services({ lang = "en" }) {
             const { step, title, body } = localize(raw, t.steps?.[raw.step]);
             return (
               <Reveal as="li" key={step} variant="left" delay={i * 160} className="flex gap-4">
-                <span className="font-mono text-2xl font-bold text-brand">{step}</span>
+                <span className="font-mono text-2xl font-bold text-accent">{step}</span>
                 <div>
-                  <p className="font-semibold text-white">{title}</p>
+                  <p className="font-semibold text-heading">{title}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted">{body}</p>
                 </div>
               </Reveal>
@@ -90,7 +90,7 @@ function Services({ lang = "en" }) {
               <Reveal as="li" key={id} variant="left" delay={i * 120} className="flex gap-3">
                 <FiCheck className="mt-1 shrink-0 text-live" />
                 <div>
-                  <p className="font-semibold text-white">{title}</p>
+                  <p className="font-semibold text-heading">{title}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted">{body}</p>
                 </div>
               </Reveal>

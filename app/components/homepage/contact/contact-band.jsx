@@ -17,13 +17,13 @@ export default function ContactBand({ lang = "en" }) {
     >
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xl font-bold text-white sm:text-2xl">{t.title}</p>
+          <p className="text-xl font-bold text-heading sm:text-2xl">{t.title}</p>
           <p className="mt-1 max-w-xl text-sm text-muted sm:text-base">{t.body}</p>
         </div>
         <Link
           href={primary.href}
           {...(primary.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-          className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-brand px-5 py-3 font-semibold text-ink transition-transform hover:-translate-y-0.5 sm:self-auto"
+          className="group inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-brand px-5 py-3 font-semibold text-on-brand transition-transform hover:-translate-y-0.5 sm:self-auto"
         >
           {t.cta}
           <MdArrowOutward className="transition-transform group-hover:rotate-45" />

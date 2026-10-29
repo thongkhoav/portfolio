@@ -11,11 +11,11 @@ import Parallax from "../../helper/parallax";
 import Reveal from "../../helper/reveal";
 
 // Brand colors so each icon is easy to tell apart on the dark background.
-// TikTok uses the official logo image instead of a one-color icon.
+// TikTok uses the official logo image: black center on light, white on dark.
 const SOCIALS = [
-  { label: "GitHub", href: personalData.github, Icon: BsGithub, color: "#f0f6fc" },
+  { label: "GitHub", href: personalData.github, Icon: BsGithub, color: "var(--color-heading)" },
   { label: "LinkedIn", href: personalData.linkedIn, Icon: BsLinkedin, color: "#0a66c2" },
-  { label: "TikTok", href: channels.tiktok.url, image: "/png/tiktok.png", color: "#ff0050" },
+  { label: "TikTok", href: channels.tiktok.url, image: "/png/tiktok.png", darkImage: "/png/tiktok-dark.png", color: "#ff0050" },
   { label: "YouTube", href: channels.youtube.url, Icon: BsYoutube, color: "#ff0033" },
 ];
 
@@ -41,10 +41,10 @@ function HeroSection({ lang = "en" }) {
           </Reveal>
 
           <Reveal immediate delay={80}>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-heading sm:text-5xl lg:text-[3.4rem]">
               {t.hi} {t.name}
               <span className="text-muted"> ({personalData.nickname})</span>.
-              <span className="mt-2 block text-brand">{t.designation}</span>
+              <span className="mt-2 block text-accent">{t.designation}</span>
             </h1>
           </Reveal>
 
@@ -55,7 +55,7 @@ function HeroSection({ lang = "en" }) {
           <Reveal immediate delay={240} className="mt-8 flex flex-wrap items-center gap-3">
             <Link
               href="#services"
-              className="group inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-on-brand transition-transform hover:-translate-y-0.5"
             >
               {t.ctaPrimary}
               <MdArrowOutward className="transition-transform group-hover:rotate-45" />
@@ -64,7 +64,7 @@ function HeroSection({ lang = "en" }) {
               href={personalData.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-brand hover:text-brand"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-semibold text-heading transition-colors hover:border-brand hover:text-accent"
             >
               {t.ctaResume}
               <MdDownload />
@@ -72,7 +72,7 @@ function HeroSection({ lang = "en" }) {
           </Reveal>
 
           <Reveal immediate delay={320} className="mt-8 flex items-center gap-2">
-            {SOCIALS.map(({ label, href, Icon, image, color }) => (
+            {SOCIALS.map(({ label, href, Icon, image, darkImage, color }) => (
               <Link
                 key={label}
                 href={href}
@@ -82,7 +82,14 @@ function HeroSection({ lang = "en" }) {
                 style={{ color }}
                 className="grid h-10 w-10 place-items-center rounded-full border border-line transition-all hover:-translate-y-0.5 hover:border-current"
               >
-                {image ? <Image src={image} alt="" width={18} height={18} /> : <Icon size={18} />}
+                {image ? (
+                  <>
+                    <Image src={image} alt="" width={18} height={18} className="dark:hidden" />
+                    <Image src={darkImage} alt="" width={18} height={18} className="hidden dark:block" />
+                  </>
+                ) : (
+                  <Icon size={18} />
+                )}
               </Link>
             ))}
           </Reveal>
@@ -107,15 +114,15 @@ function HeroSection({ lang = "en" }) {
 
           <div className="animate-float absolute -bottom-6 -left-4 rounded-xl border border-line bg-surface/95 px-4 py-3 font-mono text-xs shadow-2xl backdrop-blur sm:-left-8">
             <p className="text-muted">$ whoami</p>
-            <p className="cursor mt-1 text-white">{t.whoami}</p>
+            <p className="cursor mt-1 text-heading">{t.whoami}</p>
           </div>
         </Reveal>
       </div>
 
-      <Reveal className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
+      <Reveal className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-5 [&>*:last-child]:col-span-2 lg:[&>*:last-child]:col-span-1">
         {proofStats.map(({ value, label }) => (
           <div key={label.en} className="bg-ink px-5 py-5 sm:px-6">
-            <CountUp value={value} className="font-mono text-3xl font-bold text-brand" />
+            <CountUp value={value} className="font-mono text-3xl font-bold text-accent" />
             <p className="mt-1 text-sm text-muted">{label[lang] || label.en}</p>
           </div>
         ))}

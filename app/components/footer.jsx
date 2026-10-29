@@ -25,7 +25,7 @@ function Footer({ lang = "en" }) {
               target="_blank"
               rel="noopener noreferrer"
               href={href}
-              className="text-sm text-muted transition-colors hover:text-brand"
+              className="text-sm text-muted transition-colors hover:text-accent"
             >
               {label}
             </Link>

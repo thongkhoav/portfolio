@@ -46,10 +46,10 @@ function Row({ href, title, sub, Icon, delay }) {
           </span>
         ) : null}
         <span className="min-w-0 flex-1">
-          <span className="block font-semibold text-white">{title}</span>
+          <span className="block font-semibold text-heading">{title}</span>
           {sub ? <span className="mt-0.5 block text-sm leading-snug text-muted">{sub}</span> : null}
         </span>
-        <MdArrowOutward className="shrink-0 text-muted transition-all group-hover:rotate-45 group-hover:text-brand" />
+        <MdArrowOutward className="shrink-0 text-muted transition-all group-hover:rotate-45 group-hover:text-accent" />
       </Link>
     </Reveal>
   );
@@ -80,10 +80,10 @@ export default function LinksPage() {
               className="object-cover object-[50%_28%]"
             />
           </div>
-          <h1 className="mt-4 text-2xl font-bold text-white">
+          <h1 className="mt-4 text-2xl font-bold text-heading">
             {personalData.nickname} · {personalData.name}
           </h1>
-          <p className="mt-1 font-mono text-xs text-brand">{channels.tiktok.handle}</p>
+          <p className="mt-1 font-mono text-xs text-accent">{channels.tiktok.handle}</p>
           <p className="mt-3 text-sm text-muted">{tagline}</p>
           <p className="mt-2 text-balance text-base text-text">{intro}</p>
         </Reveal>
@@ -91,11 +91,11 @@ export default function LinksPage() {
         <Reveal immediate delay={STEP} className="mt-7">
           <Link
             href={primary.href}
-            className="group flex items-center justify-between rounded-2xl bg-brand px-5 py-4 text-ink transition-transform hover:-translate-y-0.5 active:scale-[0.99]"
+            className="group flex items-center justify-between rounded-2xl bg-brand px-5 py-4 text-on-brand transition-transform hover:-translate-y-0.5 active:scale-[0.99]"
           >
             <span>
               <span className="block text-lg font-bold">{primary.label}</span>
-              <span className="block text-sm text-ink/70">{primary.sub}</span>
+              <span className="block text-sm text-on-brand/70">{primary.sub}</span>
             </span>
             <MdArrowOutward size={22} className="transition-transform group-hover:rotate-45" />
           </Link>
@@ -132,7 +132,7 @@ export default function LinksPage() {
                 href={href}
                 {...linkProps(href)}
                 aria-label={label}
-                className="grid h-11 w-11 place-items-center rounded-full border border-line text-muted transition-colors hover:border-brand hover:text-brand"
+                className="grid h-11 w-11 place-items-center rounded-full border border-line text-muted transition-colors hover:border-brand hover:text-accent"
               >
                 <Icon size={18} />
               </Link>

@@ -21,6 +21,8 @@ const en = {
     cta: "Work with me",
     open: "Open menu",
     close: "Close menu",
+    themeDark: "Switch to dark theme",
+    themeLight: "Switch to light theme",
     switchTo: "Tiếng Việt",
   },
   hero: {
@@ -74,7 +76,7 @@ const en = {
     label: "experience",
     title: "Where I have worked",
     numbers: "By the numbers",
-    source: "Counted from git history across client repositories, Oct 2026.",
+    source: "Counted on GitHub from my work account (default branches, merged PRs), Oct 2026.",
   },
   projects: {
     label: "projects",
@@ -121,6 +123,8 @@ const vi = {
     cta: "Làm việc với mình",
     open: "Mở menu",
     close: "Đóng menu",
+    themeDark: "Chuyển sang nền tối",
+    themeLight: "Chuyển sang nền sáng",
     switchTo: "English",
   },
   hero: {
@@ -241,7 +245,7 @@ const vi = {
     label: "kinh nghiệm",
     title: "Kinh nghiệm làm việc",
     numbers: "Bằng con số",
-    source: "Đếm từ lịch sử git trên các repo khách hàng, 10/2026.",
+    source: "Đếm trên GitHub tài khoản công việc (nhánh chính, PR đã merge), 10/2026.",
     items: {
       1: {
         title: "Kỹ sư phần mềm",

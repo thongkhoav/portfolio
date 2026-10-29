@@ -27,7 +27,7 @@ export const proofStats = [
     value: `${Math.floor(totalExperienceMonths() / 12)}+`,
     label: { en: "years of professional experience", vi: "năm kinh nghiệm làm việc" },
   },
-  { value: "8", label: { en: "client products contributed to", vi: "sản phẩm khách hàng đã tham gia" } },
+  { value: "16", label: { en: "client products contributed to", vi: "sản phẩm khách hàng đã tham gia" } },
   { value: "1,900+", label: { en: "commits in the last 12 months", vi: "commit trong 12 tháng gần nhất" } },
   { value: "7", label: { en: "AWS services run in production", vi: "dịch vụ AWS vận hành production" } },
 ];
@@ -36,7 +36,7 @@ export const proofStats = [
 export const experienceMetrics = {
   1: [
     { value: "1,900+", label: { en: "commits, Oct 2025 – Oct 2026", vi: "commit, 10/2025 – 10/2026" } },
-    { value: "8", label: { en: "client products shipped or maintained", vi: "sản phẩm khách hàng đã làm hoặc duy trì" } },
+    { value: "16", label: { en: "client products shipped or maintained", vi: "sản phẩm khách hàng đã làm hoặc duy trì" } },
     { value: "4", label: { en: "products where I was the top committer (53–100% of commits)", vi: "sản phẩm mình commit nhiều nhất (53–100% số commit)" } },
     { value: "4", label: { en: "Korean & third-party integrations: NHN Cloud, Kakao, Naver Map, Payple", vi: "tích hợp dịch vụ Hàn Quốc và bên thứ ba: NHN Cloud, Kakao, Naver Map, Payple" } },
   ],

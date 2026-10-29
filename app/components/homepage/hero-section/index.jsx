@@ -95,7 +95,9 @@ function HeroSection({ lang = "en" }) {
                 alt={t.portraitAlt}
                 fill
                 priority
-                sizes="(max-width: 1024px) 90vw, 36vw"
+                quality={90}
+                // The parallax layer is 116% of the frame, so request a wider image.
+                sizes="(max-width: 1024px) 105vw, 42vw"
                 className="object-cover object-[50%_35%]"
               />
             </Parallax>

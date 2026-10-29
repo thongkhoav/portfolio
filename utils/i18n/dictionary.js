@@ -221,11 +221,11 @@ const vi = {
     principles: {
       scope: {
         title: "Rõ phạm vi trước",
-        body: "Mình hỏi tới khi phạm vi đã rõ, rồi xác nhận lại bằng văn bản trước khi bắt tay vào làm.",
+        body: "Trước khi code, bạn nhận một bản scope 1 trang: việc làm, việc không làm, các mốc và cách nghiệm thu từng mốc.",
       },
       updates: {
         title: "Không có bất ngờ",
-        body: "Cập nhật tiến độ đều đặn, dễ hiểu. Có vấn đề làm chậm việc thì bạn biết ngay trong ngày.",
+        body: "Mỗi mốc kết thúc bằng link demo chạy được và 3 dòng: đã xong, tiếp theo, đang vướng. Có vướng mắc thì bạn biết ngay trong ngày.",
       },
       reply: {
         title: "Trả lời trong 2 giờ",
@@ -280,7 +280,7 @@ const vi = {
       description:
         "16 sản phẩm thật cho khách hàng, làm và duy trì cùng đội ở công việc toàn thời gian. Tên, mã nguồn và ảnh chụp được giữ kín.",
       highlights: [
-        "App phát hành trên App Store và Google Play",
+        "Một app phát hành trên App Store và Google Play",
         "Thông báo đẩy và thanh toán trong app",
         "Web và app hơn 70 màn hình",
         "Tối ưu trải nghiệm ở các luồng người dùng dùng hằng ngày",

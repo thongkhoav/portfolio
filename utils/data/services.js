@@ -69,12 +69,12 @@ export const workPrinciples = [
   {
     id: "scope",
     title: "Scope first",
-    body: "I ask questions until the scope is clear, then confirm it in writing before I start.",
+    body: "Before any code, you get a one-page scope: what is in, what is out, the milestones and how we check each one.",
   },
   {
     id: "updates",
     title: "No surprises",
-    body: "Regular, plain updates. If something blocks the work, you hear about it the same day.",
+    body: "Each milestone ends with a working demo link and three lines: done, next, blocked. Blockers reach you the same day.",
   },
   {
     id: "reply",

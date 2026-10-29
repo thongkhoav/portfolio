@@ -58,7 +58,7 @@ export const clientWork = {
   description:
     "16 real products for clients, built and maintained with the team at my full-time job. Names, code and screenshots stay private.",
   highlights: [
-    "Mobile apps released to the App Store and Google Play",
+    "A mobile app released on the App Store and Google Play",
     "Push notifications and in-app payments",
     "Web and app products with 70+ screens",
     "UX improvements on the flows users rely on every day",

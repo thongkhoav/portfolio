@@ -3,19 +3,20 @@
 /* `dark:` utilities follow the data-theme attribute set by the theme toggle. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Design tokens. Light is the default theme; [data-theme="dark"] on <html>
+/* Design tokens. Light is the default theme (warm paper tones, no pure
+   white, to keep large areas from glaring); [data-theme="dark"] on <html>
    switches to the dark navy palette. One yellow accent in both, matching the
    TikTok channel's terminal-style number frame (JetBrains Mono, #FFD93D).
    brand = yellow fills (buttons, badges); accent = yellow-ish text that stays
    readable on the page background; on-brand = text placed on a brand fill. */
 @theme {
-  --color-ink: #f7f8fc;
-  --color-surface: #ffffff;
-  --color-surface-2: #eef1f8;
-  --color-line: #dde2ee;
-  --color-text: #273049;
-  --color-muted: #5b6478;
-  --color-heading: #0b1020;
+  --color-ink: #f2f0ea;
+  --color-surface: #faf9f5;
+  --color-surface-2: #e9e5dc;
+  --color-line: #ddd7ca;
+  --color-text: #2b2f3a;
+  --color-muted: #5f636e;
+  --color-heading: #161a23;
   --color-brand: #ffd93d;
   --color-brand-soft: #ffd93d40;
   --color-accent: #a16207;
@@ -26,7 +27,7 @@
 }
 
 :root {
-  --grid-line: #0b10200d;
+  --grid-line: #2b241508;
   color-scheme: light;
 }
 

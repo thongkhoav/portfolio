@@ -17,17 +17,17 @@ function Education({ lang = "en" }) {
             className="flex flex-col gap-4 rounded-2xl border border-line bg-surface p-6 sm:flex-row sm:items-center sm:justify-between"
           >
             <div className="flex items-center gap-4">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand-soft text-brand">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-brand-soft text-accent">
                 <FiBookOpen size={20} />
               </span>
               <div>
-                <p className="font-semibold text-white">{education.title}</p>
+                <p className="font-semibold text-heading">{education.title}</p>
                 <p className="text-sm text-muted">
                   {education.institution} · {education.details}
                 </p>
               </div>
             </div>
-            <p className="font-mono text-xs text-brand sm:text-sm">{education.duration}</p>
+            <p className="font-mono text-xs text-accent sm:text-sm">{education.duration}</p>
           </Reveal>
         );
       })}

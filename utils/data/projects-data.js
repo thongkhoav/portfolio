@@ -63,5 +63,10 @@ export const clientWork = {
     "Web and app products with 70+ screens",
     "UX improvements on the flows users rely on every day",
   ],
+  // Short excerpt from a PM's message after a deadline-driven client project.
+  quote: {
+    text: "Thank you so much for all your hard work. You really helped a lot, even late at night and on weekends.",
+    author: "Project Manager, client project",
+  },
   domains: ["Food","E-commerce", "Education", "Blog", "Landing pages", "Inventory management"],
 };

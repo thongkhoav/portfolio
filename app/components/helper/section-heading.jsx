@@ -8,12 +8,12 @@ export default function SectionHeading({ index, label, title, intro, align = "le
 
   return (
     <Reveal className={`mb-10 lg:mb-14 ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand sm:text-sm">
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent sm:text-sm">
         <span className="type inline-block">
           &gt; {index} · {label}
         </span>
       </p>
-      <h2 className="rise mt-3 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+      <h2 className="rise mt-3 text-3xl font-bold tracking-tight text-heading sm:text-5xl">
         {words.map((word, i) => (
           <span key={`${word}-${i}`}>
             <span style={{ "--w": i }}>

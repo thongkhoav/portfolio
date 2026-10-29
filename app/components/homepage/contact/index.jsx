@@ -24,10 +24,10 @@ function ContactSection({ lang = "en" }) {
       >
         <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
 
-        <p className="relative font-mono text-xs uppercase tracking-[0.2em] text-brand sm:text-sm">
+        <p className="relative font-mono text-xs uppercase tracking-[0.2em] text-accent sm:text-sm">
           <span className="type inline-block">&gt; 06 · {t.label}</span>
         </p>
-        <h2 className="rise relative mx-auto mt-4 max-w-4xl text-balance text-3xl font-bold tracking-tight text-white sm:text-5xl">
+        <h2 className="rise relative mx-auto mt-4 max-w-4xl text-balance text-3xl font-bold tracking-tight text-heading sm:text-5xl">
           {t.title.split(" ").map((word, i, all) => (
             <span key={`${word}-${i}`}>
               <span style={{ "--w": i }}>
@@ -47,8 +47,8 @@ function ContactSection({ lang = "en" }) {
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={`group inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-semibold transition-all sm:text-lg ${
                 i === 0
-                  ? "bg-brand text-ink hover:-translate-y-0.5"
-                  : "border border-brand/60 text-brand hover:bg-brand hover:text-ink"
+                  ? "bg-brand text-on-brand hover:-translate-y-0.5"
+                  : "border border-brand/60 text-accent hover:bg-brand hover:text-on-brand"
               }`}
             >
               {kind === "zalo" ? <SiZalo size={22} /> : <MdAlternateEmail />}
@@ -66,7 +66,7 @@ function ContactSection({ lang = "en" }) {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-text transition-colors hover:border-brand hover:text-brand"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-text transition-colors hover:border-brand hover:text-accent"
             >
               <Icon />
               {label}

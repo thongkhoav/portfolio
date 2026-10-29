@@ -32,7 +32,7 @@ const Projects = ({ lang = "en" }) => {
             href={personalData.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-2xl border border-dashed border-line px-6 py-5 text-muted transition-colors hover:border-brand hover:text-white"
+            className="group flex items-center justify-between rounded-2xl border border-dashed border-line px-6 py-5 text-muted transition-colors hover:border-brand hover:text-heading"
           >
             <span className="flex items-center gap-3">
               <BsGithub size={20} />

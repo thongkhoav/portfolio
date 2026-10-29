@@ -7,10 +7,10 @@ function ProjectCard({ project, index = 0, t }) {
   return (
     <SpotlightCard className="group grid overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-brand/50 lg:grid-cols-[1.2fr_1fr]">
       <div className="p-6 lg:p-8">
-        <p className="font-mono text-xs text-brand">
+        <p className="font-mono text-xs text-accent">
           {String(index + 1).padStart(2, "0")} · {project.role}
         </p>
-        <h3 className="mt-3 text-2xl font-bold text-white">{project.name}</h3>
+        <h3 className="mt-3 text-2xl font-bold text-heading">{project.name}</h3>
         <p className="mt-4 leading-relaxed text-muted">{project.description}</p>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -19,7 +19,7 @@ function ProjectCard({ project, index = 0, t }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-on-brand transition-transform hover:-translate-y-0.5"
             >
               <FiExternalLink />
               {t.demo}
@@ -35,7 +35,7 @@ function ProjectCard({ project, index = 0, t }) {
               href={source.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white transition-colors hover:border-brand hover:text-brand"
+              className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-heading transition-colors hover:border-brand hover:text-accent"
             >
               <FaGithub />
               {project.codeLabels?.[source.label] || source.label} {t.source}

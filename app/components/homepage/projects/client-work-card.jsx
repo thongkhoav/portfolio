@@ -19,6 +19,13 @@ function ClientWorkCard({ work, t }) {
             </li>
           ))}
         </ul>
+
+        {work.quote ? (
+          <figure className="mt-6 border-l-2 border-brand pl-4">
+            <blockquote className="text-sm italic leading-relaxed text-text/90">“{work.quote.text}”</blockquote>
+            <figcaption className="mt-2 font-mono text-xs text-muted">— {work.quote.author}</figcaption>
+          </figure>
+        ) : null}
       </div>
 
       <div className="relative border-t border-line bg-ink/60 p-6 font-mono text-xs leading-6 lg:border-l lg:border-t-0 lg:p-8 lg:text-sm">

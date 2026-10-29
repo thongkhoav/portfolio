@@ -4,19 +4,18 @@ import { personalData } from "@/utils/data/personal-data";
 import { getDict } from "@/utils/i18n/dictionary";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsLinkedin, BsTiktok, BsYoutube } from "react-icons/bs";
+import { BsGithub, BsLinkedin, BsYoutube } from "react-icons/bs";
 import { MdArrowOutward, MdDownload } from "react-icons/md";
-import { SiLeetcode } from "react-icons/si";
 import CountUp from "../../helper/count-up";
 import Parallax from "../../helper/parallax";
 import Reveal from "../../helper/reveal";
 
 // Brand colors so each icon is easy to tell apart on the dark background.
+// TikTok uses the official logo image instead of a one-color icon.
 const SOCIALS = [
   { label: "GitHub", href: personalData.github, Icon: BsGithub, color: "#f0f6fc" },
   { label: "LinkedIn", href: personalData.linkedIn, Icon: BsLinkedin, color: "#0a66c2" },
-  { label: "LeetCode", href: personalData.leetcode, Icon: SiLeetcode, color: "#ffa116" },
-  { label: "TikTok", href: channels.tiktok.url, Icon: BsTiktok, color: "#25f4ee" },
+  { label: "TikTok", href: channels.tiktok.url, image: "/png/tiktok.png", color: "#ff0050" },
   { label: "YouTube", href: channels.youtube.url, Icon: BsYoutube, color: "#ff0033" },
 ];
 
@@ -73,7 +72,7 @@ function HeroSection({ lang = "en" }) {
           </Reveal>
 
           <Reveal immediate delay={320} className="mt-8 flex items-center gap-2">
-            {SOCIALS.map(({ label, href, Icon, color }) => (
+            {SOCIALS.map(({ label, href, Icon, image, color }) => (
               <Link
                 key={label}
                 href={href}
@@ -83,7 +82,7 @@ function HeroSection({ lang = "en" }) {
                 style={{ color }}
                 className="grid h-10 w-10 place-items-center rounded-full border border-line transition-all hover:-translate-y-0.5 hover:border-current"
               >
-                <Icon size={18} />
+                {image ? <Image src={image} alt="" width={18} height={18} /> : <Icon size={18} />}
               </Link>
             ))}
           </Reveal>

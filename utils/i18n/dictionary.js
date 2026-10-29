@@ -285,6 +285,10 @@ const vi = {
         "Web và app hơn 70 màn hình",
         "Tối ưu trải nghiệm ở các luồng người dùng dùng hằng ngày",
       ],
+      quote: {
+        text: "Thank you so much for all your hard work. You really helped a lot, even late at night and on weekends.",
+        author: "Project Manager, dự án khách hàng",
+      },
       domains: ["Đồ ăn", "Thương mại điện tử", "Giáo dục", "Blog", "Landing page", "Quản lý kho"],
     },
     items: {

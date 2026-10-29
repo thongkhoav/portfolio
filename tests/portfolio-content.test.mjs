@@ -90,9 +90,14 @@ test("matches the verified experience and education history", () => {
   ]);
 });
 
-test("features only the Task Management App with public source and demo links", () => {
-  assert.equal(projectsData.length, 1);
-  assert.equal(projectsData[0].name, "Task Management App");
+test("features the Task Management App and the RAG assistant with public source links", () => {
+  assert.deepEqual(
+    projectsData.map((p) => p.name),
+    ["Task Management App", "Enterprise AI Assistant"],
+  );
+  assert.deepEqual(projectsData[1].code, [
+    { label: "GitHub", url: "https://github.com/thongkhoav/enterprise-ai-assistant" },
+  ]);
   assert.deepEqual(projectsData[0].code, [
     {
       label: "Frontend",

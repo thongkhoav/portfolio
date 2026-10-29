@@ -27,7 +27,7 @@ function ContactSection({ lang = "en" }) {
         <p className="relative font-mono text-xs uppercase tracking-[0.2em] text-brand sm:text-sm">
           <span className="type inline-block">&gt; 06 · {t.label}</span>
         </p>
-        <h2 className="rise relative mx-auto mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+        <h2 className="rise relative mx-auto mt-4 max-w-4xl text-balance text-3xl font-bold tracking-tight text-white sm:text-5xl">
           {t.title.split(" ").map((word, i, all) => (
             <span key={`${word}-${i}`}>
               <span style={{ "--w": i }}>
@@ -37,7 +37,7 @@ function ContactSection({ lang = "en" }) {
             </span>
           ))}
         </h2>
-        <p className="relative mx-auto mt-4 max-w-xl text-muted sm:text-lg">{t.body}</p>
+        <p className="relative mx-auto mt-4 max-w-xl text-balance text-muted sm:text-lg">{t.body}</p>
 
         <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
           {contactChannels(lang).map(({ kind, href, external }, i) => (
@@ -57,7 +57,7 @@ function ContactSection({ lang = "en" }) {
             </Link>
           ))}
         </div>
-        <p className="relative mx-auto mt-4 max-w-md text-sm text-muted">{t.note}</p>
+        <p className="relative mx-auto mt-4 max-w-lg text-balance text-sm text-muted">{t.note}</p>
 
         <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
           {secondary.map(({ label, href, Icon }) => (

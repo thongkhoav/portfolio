@@ -24,11 +24,11 @@ function ProjectCard({ project, index = 0, t }) {
               <FiExternalLink />
               {t.demo}
             </Link>
-          ) : (
+          ) : project.demo ? (
             <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-line px-4 py-2 text-sm text-muted">
               {t.demoOffline}
             </span>
-          )}
+          ) : null}
           {project.code.map((source) => (
             <Link
               key={source.url}

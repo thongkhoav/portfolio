@@ -68,6 +68,7 @@ const en = {
     ask: "Ask about this",
     subjectPrefix: "[Project]",
     howIWork: "How I work",
+    workingWithMe: "Working with me",
   },
   experience: {
     label: "experience",
@@ -82,6 +83,10 @@ const en = {
     demoOffline: "Demo is being redeployed",
     source: "source",
     more: "More experiments and tools on GitHub",
+    clientWork: {
+      highlightsLabel: "What these projects covered",
+      domainsLabel: "Domains",
+    },
   },
   skills: { label: "skills", title: "Tools I use every week" },
   contact: {
@@ -162,15 +167,17 @@ const vi = {
     ask: "Hỏi về gói này",
     subjectPrefix: "[Dự án]",
     howIWork: "Cách mình làm việc",
+    workingWithMe: "Khi làm việc với mình",
     items: {
       "web-app": {
         tag: "Cho startup và đội sản phẩm",
-        title: "Phát triển web app",
+        title: "Phát triển web & mobile app",
         pitch:
-          "Một web app chạy production từ yêu cầu tới deploy: giao diện, API, database, đăng nhập và thanh toán, dễ bảo trì về sau.",
+          "Một web hoặc mobile app chạy production từ yêu cầu tới ra mắt: giao diện, API, database, đăng nhập, thanh toán và thông báo đẩy, dễ bảo trì về sau.",
         deliverables: [
           "Frontend Next.js / React, chạy tốt trên điện thoại",
           "API bằng FastAPI hoặc NestJS với PostgreSQL",
+          "Phát hành app lên App Store và Google Play",
           "Deploy có CI/CD và tài liệu bàn giao rõ ràng",
         ],
       },
@@ -211,6 +218,24 @@ const vi = {
         body: "Deploy, tài liệu bàn giao và bảo trì hằng tháng nếu cần.",
       },
     },
+    principles: {
+      scope: {
+        title: "Rõ phạm vi trước",
+        body: "Mình hỏi tới khi phạm vi đã rõ, rồi xác nhận lại bằng văn bản trước khi bắt tay vào làm.",
+      },
+      updates: {
+        title: "Không có bất ngờ",
+        body: "Cập nhật tiến độ đều đặn, dễ hiểu. Có vấn đề làm chậm việc thì bạn biết ngay trong ngày.",
+      },
+      reply: {
+        title: "Trả lời trong 2 giờ",
+        body: "Trong giờ làm việc (GMT+7), tin nhắn được trả lời trong vòng 2 giờ.",
+      },
+      delivery: {
+        title: "Giao nhanh, đúng hạn",
+        body: "Chia mốc nhỏ và giao đúng ngày đã hẹn, để dự án luôn tiến lên.",
+      },
+    },
   },
   experience: {
     label: "kinh nghiệm",
@@ -247,6 +272,21 @@ const vi = {
     demoOffline: "Demo đang được deploy lại",
     source: "mã nguồn",
     more: "Thêm thử nghiệm và công cụ trên GitHub",
+    clientWork: {
+      highlightsLabel: "Các dự án này có gì",
+      domainsLabel: "Lĩnh vực",
+      name: "Sản phẩm cho khách hàng (NDA)",
+      role: "Kỹ sư phần mềm",
+      description:
+        "16 sản phẩm thật cho khách hàng, làm và duy trì cùng đội ở công việc toàn thời gian. Tên, mã nguồn và ảnh chụp được giữ kín.",
+      highlights: [
+        "App phát hành trên App Store và Google Play",
+        "Thông báo đẩy và thanh toán trong app",
+        "Web và app hơn 70 màn hình",
+        "Tối ưu trải nghiệm ở các luồng người dùng dùng hằng ngày",
+      ],
+      domains: ["Đồ ăn", "Thương mại điện tử", "Giáo dục", "Blog", "Landing page", "Quản lý kho"],
+    },
     items: {
       1: {
         name: "Ứng dụng quản lý công việc",
@@ -254,6 +294,13 @@ const vi = {
         description:
           "Nền tảng quản lý công việc theo nhóm: thành viên theo phòng, giao việc, cập nhật trạng thái thời gian thực, đăng nhập Google, nhắc việc bằng Redis và thông báo đẩy qua Firebase.",
         codeLabels: { Frontend: "Frontend", Backend: "Backend" },
+      },
+      2: {
+        name: "Trợ lý AI cho doanh nghiệp",
+        role: "Dự án cá nhân",
+        description:
+          "Chatbot RAG trả lời từ file PDF, DOCX và Markdown đã tải lên, trích đúng đoạn và số trang PDF, và nói \"không biết\" khi tài liệu không có câu trả lời. Router LangGraph chuyển câu hỏi số liệu sang công cụ database và yêu cầu tạo ticket sang công cụ ticket.",
+        codeLabels: { GitHub: "GitHub" },
       },
     },
   },

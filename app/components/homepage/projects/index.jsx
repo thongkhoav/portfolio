@@ -1,11 +1,12 @@
 import { personalData } from "@/utils/data/personal-data";
-import { projectsData } from "@/utils/data/projects-data";
+import { clientWork, projectsData } from "@/utils/data/projects-data";
 import { getDict, localize } from "@/utils/i18n/dictionary";
 import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
 import { MdArrowOutward } from "react-icons/md";
 import Reveal from "../../helper/reveal";
 import SectionHeading from "../../helper/section-heading";
+import ClientWorkCard from "./client-work-card";
 import ProjectCard from "./project-card";
 
 const Projects = ({ lang = "en" }) => {
@@ -16,8 +17,12 @@ const Projects = ({ lang = "en" }) => {
       <SectionHeading index="03" label={t.label} title={t.title} />
 
       <div className="grid gap-5">
+        <Reveal variant="tilt">
+          <ClientWorkCard work={localize(clientWork, t.clientWork)} t={t.clientWork} />
+        </Reveal>
+
         {projectsData.map((raw, index) => (
-          <Reveal key={raw.id} variant="tilt" delay={index * 120}>
+          <Reveal key={raw.id} variant="tilt" delay={(index + 1) * 120}>
             <ProjectCard project={localize(raw, t.items?.[raw.id])} index={index} t={t} />
           </Reveal>
         ))}

@@ -11,12 +11,13 @@ import CountUp from "../../helper/count-up";
 import Parallax from "../../helper/parallax";
 import Reveal from "../../helper/reveal";
 
+// Brand colors so each icon is easy to tell apart on the dark background.
 const SOCIALS = [
-  { label: "GitHub", href: personalData.github, Icon: BsGithub },
-  { label: "LinkedIn", href: personalData.linkedIn, Icon: BsLinkedin },
-  { label: "LeetCode", href: personalData.leetcode, Icon: SiLeetcode },
-  { label: "TikTok", href: channels.tiktok.url, Icon: BsTiktok },
-  { label: "YouTube", href: channels.youtube.url, Icon: BsYoutube },
+  { label: "GitHub", href: personalData.github, Icon: BsGithub, color: "#f0f6fc" },
+  { label: "LinkedIn", href: personalData.linkedIn, Icon: BsLinkedin, color: "#0a66c2" },
+  { label: "LeetCode", href: personalData.leetcode, Icon: SiLeetcode, color: "#ffa116" },
+  { label: "TikTok", href: channels.tiktok.url, Icon: BsTiktok, color: "#25f4ee" },
+  { label: "YouTube", href: channels.youtube.url, Icon: BsYoutube, color: "#ff0033" },
 ];
 
 function HeroSection({ lang = "en" }) {
@@ -72,14 +73,15 @@ function HeroSection({ lang = "en" }) {
           </Reveal>
 
           <Reveal immediate delay={320} className="mt-8 flex items-center gap-2">
-            {SOCIALS.map(({ label, href, Icon }) => (
+            {SOCIALS.map(({ label, href, Icon, color }) => (
               <Link
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand"
+                style={{ color }}
+                className="grid h-10 w-10 place-items-center rounded-full border border-line transition-all hover:-translate-y-0.5 hover:border-current"
               >
                 <Icon size={18} />
               </Link>

@@ -1,5 +1,5 @@
 import { personalData } from "@/utils/data/personal-data";
-import { services, workSteps } from "@/utils/data/services";
+import { services, workPrinciples, workSteps } from "@/utils/data/services";
 import { getDict, localize } from "@/utils/i18n/dictionary";
 import Link from "next/link";
 import { FiCheck } from "react-icons/fi";
@@ -79,6 +79,24 @@ function Services({ lang = "en" }) {
             );
           })}
         </ol>
+
+        <Reveal as="p" variant="blur" className="mt-10 font-mono text-xs uppercase tracking-wider text-muted">
+          {t.workingWithMe}
+        </Reveal>
+        <ul className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {workPrinciples.map((raw, i) => {
+            const { id, title, body } = localize(raw, t.principles?.[raw.id]);
+            return (
+              <Reveal as="li" key={id} variant="left" delay={i * 120} className="flex gap-3">
+                <FiCheck className="mt-1 shrink-0 text-live" />
+                <div>
+                  <p className="font-semibold text-white">{title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{body}</p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

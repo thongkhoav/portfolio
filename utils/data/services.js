@@ -4,16 +4,17 @@ export const services = [
   {
     id: "web-app",
     tag: "For startups & product teams",
-    title: "Web application development",
+    title: "Web & mobile app development",
     pitch:
-      "A production web app from requirements to deploy: interface, API, database, login and payments, built to be maintained.",
+      "A production web or mobile app from requirements to launch: interface, API, database, login, payments and push notifications, built to be maintained.",
     deliverables: [
       "Next.js / React frontend, responsive by default",
       "API on FastAPI or NestJS with PostgreSQL",
+      "Mobile releases on the App Store and Google Play",
       "Deployed with CI/CD and a clear hand-off",
     ],
     stack: ["Next.js", "NestJS", "FastAPI", "PostgreSQL"],
-    subject: "Web application development",
+    subject: "Web & mobile app development",
   },
   {
     id: "llm-features",
@@ -60,5 +61,29 @@ export const workSteps = [
     step: "03",
     title: "Launch & support",
     body: "Deploy, hand-off documentation and optional monthly maintenance.",
+  },
+];
+
+// Working habits shown under "How I work".
+export const workPrinciples = [
+  {
+    id: "scope",
+    title: "Scope first",
+    body: "I ask questions until the scope is clear, then confirm it in writing before I start.",
+  },
+  {
+    id: "updates",
+    title: "No surprises",
+    body: "Regular, plain updates. If something blocks the work, you hear about it the same day.",
+  },
+  {
+    id: "reply",
+    title: "Replies within 2 hours",
+    body: "During my working hours (GMT+7), messages get a reply in under 2 hours.",
+  },
+  {
+    id: "delivery",
+    title: "Fast, on-time delivery",
+    body: "Small milestones that ship on the agreed date, so the project keeps moving.",
   },
 ];

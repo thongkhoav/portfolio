@@ -29,6 +29,11 @@ function ProjectCard({ project, index = 0, t }) {
               {t.demoOffline}
             </span>
           ) : null}
+          {project.code.length === 0 ? (
+            <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-line px-4 py-2 text-sm text-muted">
+              {t.privateSource}
+            </span>
+          ) : null}
           {project.code.map((source) => (
             <Link
               key={source.url}

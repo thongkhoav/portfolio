@@ -83,6 +83,7 @@ const en = {
     title: "Selected work",
     demo: "Live demo",
     demoOffline: "Demo is being redeployed",
+    privateSource: "Private source",
     source: "source",
     more: "More experiments and tools on GitHub",
     clientWork: {
@@ -274,6 +275,7 @@ const vi = {
     title: "Dự án tiêu biểu",
     demo: "Xem demo",
     demoOffline: "Demo đang được deploy lại",
+    privateSource: "Mã nguồn riêng tư",
     source: "mã nguồn",
     more: "Thêm thử nghiệm và công cụ trên GitHub",
     clientWork: {
@@ -308,6 +310,13 @@ const vi = {
         role: "Dự án cá nhân",
         description:
           "Chatbot RAG trả lời từ file PDF, DOCX và Markdown đã tải lên, trích đúng đoạn và số trang PDF, và nói \"không biết\" khi tài liệu không có câu trả lời. Router LangGraph chuyển câu hỏi số liệu sang công cụ database và yêu cầu tạo ticket sang công cụ ticket.",
+        codeLabels: { GitHub: "GitHub" },
+      },
+      3: {
+        name: "Content Creator Studio",
+        role: "Dự án cá nhân",
+        description:
+          "Workspace thay cho quy trình quản lý nội dung trên Google Sheets: pipeline Kanban và bảng sửa trực tiếp cho ý tưởng đa nền tảng, thư viện audio, SOP tra nhanh, và trang brainstorm AI tạo phiên bản riêng cho từng kênh đã chọn. Giao diện 8 ngôn ngữ; backend FastAPI có mật khẩu, dữ liệu trên Supabase, deploy trên Render.",
         codeLabels: { GitHub: "GitHub" },
       },
     },

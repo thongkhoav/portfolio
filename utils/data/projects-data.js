@@ -48,6 +48,18 @@ export const projectsData = [
     demo: null,
     demoOnline: false,
   },
+  {
+    id: 3,
+    name: "Content Creator Studio",
+    description:
+      "A workspace that replaced my Google Sheets content workflow: a Kanban and inline-edit pipeline for multi-platform ideas, an audio library, quick-reference SOPs, and an AI brainstorm page that drafts a version for each selected channel. UI in 8 languages; password-protected FastAPI backend on Supabase, deployed on Render.",
+    tools: ["React", "Vite", "FastAPI", "Python", "Supabase", "PostgreSQL", "LLM API", "Docker", "Render"],
+    role: "Personal project",
+    // Source stays private (it calls a private LLM gateway), so no links.
+    code: [],
+    demo: null,
+    demoOnline: false,
+  },
 ];
 
 // Client work done at my full-time job. Names, code and screenshots stay

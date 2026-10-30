@@ -12,7 +12,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-tau-sable-y9ezidczsy.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.khoariodev.online";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

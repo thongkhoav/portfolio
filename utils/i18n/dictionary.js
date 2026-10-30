@@ -317,7 +317,7 @@ const vi = {
         role: "Dự án cá nhân",
         description:
           "Workspace thay cho quy trình quản lý nội dung trên Google Sheets: pipeline Kanban và bảng sửa trực tiếp cho ý tưởng đa nền tảng, thư viện audio, SOP tra nhanh, và trang brainstorm AI tạo phiên bản riêng cho từng kênh đã chọn. Giao diện 8 ngôn ngữ; backend FastAPI có mật khẩu, dữ liệu trên Supabase, deploy trên Render.",
-        codeLabels: {},
+        codeLabels: { GitHub: "GitHub" },
       },
     },
   },

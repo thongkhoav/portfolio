@@ -55,8 +55,12 @@ export const projectsData = [
       "A workspace that replaced my Google Sheets content workflow: a Kanban and inline-edit pipeline for multi-platform ideas, an audio library, quick-reference SOPs, and an AI brainstorm page that drafts a version for each selected channel. UI in 8 languages; password-protected FastAPI backend on Supabase, deployed on Render.",
     tools: ["React", "Vite", "FastAPI", "Python", "Supabase", "PostgreSQL", "LLM API", "Docker", "Render"],
     role: "Personal project",
-    // Source stays private (it calls a private LLM gateway), so no links.
-    code: [],
+    code: [
+      {
+        label: "GitHub",
+        url: "https://github.com/thongkhoav/creator-studio",
+      },
+    ],
     demo: null,
     demoOnline: false,
   },

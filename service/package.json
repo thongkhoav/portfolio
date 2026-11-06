@@ -1,0 +1,21 @@
+{
+  "name": "thong-khoa-service-site",
+  "description": "Service page for Thống Khoa làm phần mềm (static export, hosted on Cloudflare Pages)",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3100",
+    "build": "next build",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "next": "16.2.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

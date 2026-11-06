@@ -1,6 +1,6 @@
 # Service site
 
-Vietnamese service page for **Thống Khoa làm phần mềm**, separate from the personal site in the repo root. It is a static Next.js export, planned for Cloudflare Pages at `service.khoariodev.online`.
+Vietnamese service page for **Thống Khoa làm phần mềm**, separate from the personal site in the repo root. It is a static Next.js export on Cloudflare Pages, project `thongkhoa-service`. The planned custom domain is `service.khoariodev.online`.
 
 ## Local
 
@@ -14,28 +14,32 @@ npm run build                # output in out/
 
 ## Cloudflare Pages
 
-Project settings:
+Deploys are direct uploads from this machine, not Git-connected, so the Zalo link stays out of the repo and out of Cloudflare's build settings.
 
-| Setting | Value |
-|---|---|
-| Repository | `thongkhoav/portfolio` |
-| Root directory | `service` |
-| Build command | `npm run build` |
-| Output directory | `out` |
-| Environment variable | `NEXT_PUBLIC_ZALO_URL` = the Zalo link |
-| Custom domain | `service.khoariodev.online` |
+```bash
+npx wrangler login
+sh scripts/deploy-site.sh    # builds with .env.local, deploys thongkhoa-service
+```
+
+`public/_headers` keeps the `pages.dev` copy out of search. The custom domain is not affected.
+
+Run wrangler only through these scripts. In a Next.js folder it rewrites the project for Workers, and without `--force` on `pages project create` it makes a Worker instead of a Pages project.
 
 ## Demos
 
-Content lives in `data/site.js`. Each demo is its own Cloudflare Pages project, deployed from its own repo with `npm run build` and output `dist`:
+Content lives in `data/site.js`. Each demo is its own Cloudflare Pages project. Run `npm run build` in each demo folder, then:
 
-| Demo | Local folder | Planned URL |
+```bash
+sh scripts/deploy-demos.sh
+```
+
+The script deploys a temporary copy with a visible demo label and a noindex header. The demo repos are not changed.
+
+| Demo | Local folder | URL |
 |---|---|---|
 | Nhịp Arena | `~/Documents/coding/dat-san` | `nhip-arena-demo.pages.dev` |
 | Mái Hiên | `~/Documents/coding/nha-tro` | `mai-hien-demo.pages.dev` |
 | Dải Lụa | `~/Documents/coding/du-lich` | `dai-lua-demo.pages.dev` |
-
-If Cloudflare gives a different URL, update `url` in `data/site.js`.
 
 ## Content rules
 

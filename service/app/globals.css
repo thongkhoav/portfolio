@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Warm paper with the channel's mint accent (#3DDC97) and terminal frame. */
+@theme {
+  --color-paper: #f5f2ea;
+  --color-card: #fbf9f4;
+  --color-line: #ddd8ca;
+  --color-ink: #15211c;
+  --color-muted: #55615b;
+  --color-mint: #3ddc97;
+  --color-mint-deep: #0b7a50;
+  --color-mint-soft: #d5f5e5;
+  --color-term: #10201a;
+  --color-term-text: #d9efe4;
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-mint-deep);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
